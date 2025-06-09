@@ -1,0 +1,147 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Faith Fellowship</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #8360c3, #2ebf91);
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #2f3542;
+      margin-bottom: 25px;
+    }
+    label {
+      font-weight: 600;
+    }
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .remember-forgot input {
+      margin-right: 5px;
+    }
+    .remember-forgot a {
+      color: #2f80ed;
+      text-decoration: none;
+    }
+    button {
+      width: 100%;
+      background: #2f80ed;
+      color: white;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #1c60b3;
+    }
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+    .signup-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .signup-link a {
+      color: #2f80ed;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Your Account</h2>
+    <form id="login-form">
+      <label for="email">Email</label>
+      <input type="email" id="email" required placeholder="e.g. user@example.com" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required placeholder="Enter your password" />
+
+      <div class="remember-forgot">
+        <label><input type="checkbox" id="remember" /> Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit">Login</button>
+      <div class="message" id="login-message"></div>
+    </form>
+
+    <div class="signup-link">
+      Don't have an account? <a href="sing.html">Sign up here</a>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const loginMessage = document.getElementById('login-message');
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      fakeLoginAPI(email, password).then(response => {
+        if (response.success) {
+          loginMessage.style.color = 'green';
+          loginMessage.textContent = 'Login successful! Redirecting...';
+          setTimeout(() => window.location.href = 'index.html', 1500);
+        } else {
+          loginMessage.style.color = 'red';
+          loginMessage.textContent = 'Invalid email or password.';
+        }
+      });
+    });
+
+    function fakeLoginAPI(email, password) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          if (email === 'user@example.com' && password === 'password123') {
+            resolve({ success: true });
+          } else {
+            resolve({ success: false });
+          }
+        }, 1000);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christ-Centered Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #ffd700;
+      --dark-bg: #111;
+      --light-bg: #1c1c1c;
+      --text-color: #fff;
+      --accent: #ff5722;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-color);
+    }
+    header {
+      padding: 2rem;
+      background: linear-gradient(135deg, #1c1c1c, #333);
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: var(--main-color);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: var(--light-bg);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--main-color);
+    }
+    .section {
+      padding: 3rem 2rem;
+      background: var(--dark-bg);
+      min-height: 60vh;
+    }
+    .section:nth-child(even) {
+      background: var(--light-bg);
+    }
+    .btn {
+      background-color: var(--accent);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #e64a19;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .chat-box {
+      background: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    .chat-messages {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+    .chat-message {
+      margin-bottom: 0.5rem;
+    }
+    .chat-message.user {
+      color: #ffd700;
+    }
+    .chat-message.bot {
+      color: #0f0;
+    }
+    .chat-input {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .chat-input button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Christ-Centered Community</h1>
+    <p>Living for Christ. Growing Together. Loving Others.</p>
+  </header>
+
+  <nav>
+    <a href="login.html">Login</a>
+    <a href="no.html">Kids Section</a>
+    <a href="nite.html">Member Platform</a>
+  
+    <a href="#entertainment">Entertainment</a>
+    <a href="cat.html">File Records</a>
+    <a href="give.html">Give</a>
+    <a href="ja.html">ai chat</a>
+  </nav>
+
+  <section class="section" id="login">
+    <h2>Member Login</h2>
+    <p>Access your personalized dashboard after signing in.</p>
+    <button class="btn">Login Now</button>
+  </section>
+
+  <section class="section" id="kids">
+    <h2>Kids Section</h2>
+    <p>Fun Bible stories, games, and activities for our little ones.</p>
+    <button class="btn">Enter Kids Area</button>
+  </section>
+
+  <section class="section" id="dashboard">
+    <h2>Member Dashboard</h2>
+    <p>View your learning plan, interact with others, and grow in faith.</p>
+    <div class="chat-box">
+      <div id="chatMessages" class="chat-messages"></div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="community">
+    <h2>Live Community Calls</h2>
+    <p>Join live video meetings with other believers.</p>
+    <button class="btn">Join a Call</button>
+  </section>
+
+  <section class="section" id="entertainment">
+    <h2>Christian Entertainment</h2>
+    <p>Faith-based videos, music, and more to uplift your spirit.</p>
+    <button class="btn">Explore</button>
+  </section>
+
+  <section class="section" id="files">
+    <h2>File Management</h2>
+    <p>Access your shared files and community resources.</p>
+    <button class="btn">Manage Files</button>
+  </section>
+
+  <section class="section" id="payment">
+    <h2>Support the Ministry</h2>
+    <p>Make a donation or payment through our secure platform.</p>
+    <button class="btn">Donate</button>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About This Platform</h2>
+    <p>This community was built to glorify Christ, empower believers, and care for souls online.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Reach out with questions, prayer requests, or just to say hello.</p>
+    <button class="btn">Get in Touch</button>
+  </section>
+
+  <footer>
+    &copy; 2025 Christ-Centered Community. All Rights Reserved.
+  </footer>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const message = input.value.trim();
+      if (message === "") return;
+
+      const messagesDiv = document.getElementById("chatMessages");
+      const userMsg = document.createElement("div");
+      userMsg.className = "chat-message user";
+      userMsg.textContent = "You: " + message;
+      messagesDiv.appendChild(userMsg);
+
+      setTimeout(() => {
+        const botMsg = document.createElement("div");
+        botMsg.className = "chat-message bot";
+        botMsg.textContent = "AI: " + getReply(message);
+        messagesDiv.appendChild(botMsg);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }, 500);
+
+      input.value = "";
+    }
+
+    function getReply(msg) {
+      const lower = msg.toLowerCase();
+      if (lower.includes("jesus")) return "Jesus loves you so much!";
+      if (lower.includes("pray")) return "Yes, let’s pray together. 🙏";
+      if (lower.includes("bible")) return "The Word of God is our light!";
+      return "I'm here for you. Keep walking with Christ!";
+    }
+  </script>
+</body>
+</html>

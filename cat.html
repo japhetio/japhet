@@ -1,0 +1,211 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>File Management - Christ-Centered Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --main-color: #ffd700;
+    --dark-bg: #111;
+    --light-bg: #1c1c1c;
+    --text-color: #fff;
+    --accent: #ff5722;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: linear-gradient(135deg, #1c1c1c, #333);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    color: var(--main-color);
+  }
+  nav a {
+    color: var(--text-color);
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: var(--accent);
+  }
+  main {
+    max-width: 700px;
+    margin: 3rem auto;
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ffcc00aa;
+  }
+  h2 {
+    color: var(--main-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  input[type="file"] {
+    color: var(--text-color);
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background-color: #e64a19;
+  }
+  ul.file-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul.file-list li {
+    background: #222;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ul.file-list li span {
+    overflow-wrap: anywhere;
+  }
+  ul.file-list li button.delete-btn {
+    background: #b71c1c;
+    border: none;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  ul.file-list li button.delete-btn:hover {
+    background: #d32f2f;
+  }
+  .no-files {
+    text-align: center;
+    color: #ccc;
+    font-style: italic;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    background: #111;
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>File Management</h1>
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#community">Community</a>
+    <a href="#files">Files</a>
+    <a href="#payment">Give</a>
+    <a href="#logout">Logout</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Upload and Manage Your Files</h2>
+  <form id="uploadForm">
+    <input type="file" id="fileInput" multiple />
+    <button type="submit">Upload</button>
+  </form>
+
+  <ul class="file-list" id="fileList">
+    <li class="no-files">No files uploaded yet.</li>
+  </ul>
+</main>
+
+<footer>
+  &copy; 2025 Christ-Centered Community
+</footer>
+
+<script>
+  const uploadForm = document.getElementById('uploadForm');
+  const fileInput = document.getElementById('fileInput');
+  const fileList = document.getElementById('fileList');
+
+  let filesArray = [];
+
+  function renderFiles() {
+    fileList.innerHTML = '';
+    if (filesArray.length === 0) {
+      fileList.innerHTML = '<li class="no-files">No files uploaded yet.</li>';
+      return;
+    }
+    filesArray.forEach((file, index) => {
+      const li = document.createElement('li');
+      const span = document.createElement('span');
+      span.textContent = file.name;
+      li.appendChild(span);
+
+      const delBtn = document.createElement('button');
+      delBtn.textContent = 'Delete';
+      delBtn.classList.add('delete-btn');
+      delBtn.addEventListener('click', () => {
+        filesArray.splice(index, 1);
+        renderFiles();
+      });
+      li.appendChild(delBtn);
+
+      fileList.appendChild(li);
+    });
+  }
+
+  uploadForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const selectedFiles = Array.from(fileInput.files);
+    if (selectedFiles.length === 0) {
+      alert('Please select at least one file to upload.');
+      return;
+    }
+    // Append new files, avoiding duplicates by name
+    selectedFiles.forEach(f => {
+      if (!filesArray.some(file => file.name === f.name)) {
+        filesArray.push(f);
+      }
+    });
+    fileInput.value = '';
+    renderFiles();
+  });
+
+  renderFiles();
+</script>
+
+</body>
+</html>

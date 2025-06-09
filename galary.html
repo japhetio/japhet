@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christ Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #111;
+      color: #fff;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #ffd700;
+    }
+    .jesus-photo {
+      width: 100px;
+      height: auto;
+      margin-top: 1rem;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+      transform: perspective(1000px);
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05) rotateY(5deg);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover img {
+      opacity: 0.9;
+    }
+    .svg-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      margin-top: 1rem;
+      fill: #ffd700;
+    }
+    .extra-svgs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .extra-svgs img {
+      width: 60px;
+      height: auto;
+      filter: brightness(1.2);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Christ Image Gallery</h1>
+    <p>Experience the divine through powerful imagery</p>
+    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <path d="M32 2C15.4 2 2 15.4 2 32s13.4 30 30 30 30-13.4 30-30S48.6 2 32 2zm0 56C17.7 58 6 46.3 6 32S17.7 6 32 6s26 11.7 26 26-11.7 26-26 26z"/>
+      <path d="M31 17h2v30h-2zM17 31h30v2H17z"/>
+    </svg>
+    <img class="jesus-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jesus-Christ-Savior.jpg/800px-Jesus-Christ-Savior.jpg" alt="Jesus PNG" />
+    <div class="extra-svgs">
+      <img src="https://www.svgrepo.com/show/349360/angel.svg" alt="Angel SVG" />
+      <img src="https://www.svgrepo.com/show/373635/pray.svg" alt="Pray SVG" />
+      <img src="https://www.svgrepo.com/show/252184/cross.svg" alt="Cross SVG" />
+    </div>
+  </header>
+
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/600x400/?jesus" alt="Jesus" />
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/600x400/?cross" alt="Cross" />
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/600x400/?church" alt="Church" />
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/600x400/?bible" alt="Bible" />
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/600x400/?worship" alt="Worship" />
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/600x400/?prayer" alt="Prayer" />
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Christ Gallery. All rights reserved.
+  </footer>
+</body>
+</html>
