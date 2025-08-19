@@ -1,0 +1,197 @@
+.container {
+  background: #23272f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 70px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #00bcd4, #ff4081, #e6b105);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.first {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+}
+
+ul li a:hover,
+ul li a:focus {
+  background: #00bcd4;
+  color: #23272f;
+}
+ul li a::after {
+  content: '->';
+  display: block;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #00bcd4, #ff4081, #ffc107);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+ul li a:hover::after,
+ul li a:focus::after {
+  width: 100%;
+}
+ul li a.active {
+  color: #00bcd4;
+  font-weight: bold;
+}
+
+
+
+ul li a.active::after {
+  width: 100%;
+  background: linear-gradient(90deg, #00bcd4, #ff4081, #ffc107);
+}
+ul li a.active:hover::after,
+ul li a.active:focus::after {
+  width: 100%;
+  background: linear-gradient(90deg, #00bcd4, #ff4081, #ffc107);
+}
+ul li a.active {
+  color: #00bcd4;
+  font-weight: bold;
+}
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.robot-bounce {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.robot-icon {
+  font-size: 2.2rem;
+  animation: bounce 1s infinite alternate;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-15px);}
+}
+
+.speech-bubble {
+  position: absolute;
+  left: 110%;
+  top: 0;
+  background: #fff;
+  color: #23272f;
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.robot-bounce:hover .speech-bubble,
+.robot-bounce:focus .speech-bubble {
+  opacity: 1;
+}
+
+/* ...keep your other styles below... */
+.robot-bounce:hover .robot-icon,
+.robot-bounce:focus .robot-icon {
+  color: #00bcd4;
+}
+.robot-bounce:hover .robot-icon::before,
+.robot-bounce:focus .robot-icon::before {
+  content: '🤖';
+  position: absolute;
+  left: -30px;
+  top: -5px;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+@media (max-width: 900px) {
+   .container {
+      padding: 0 1rem;
+   }
+   ul {
+      gap: 1rem;
+   }
+   .brand {
+      font-size: 1.5rem;
+   }
+   .robot-icon {
+      font-size: 1.7rem;
+   }
+}
+
+@media (max-width: 600px) {
+   .container {
+      flex-direction: column;
+      height: auto;
+      padding: 0.5rem 0.5rem;
+      align-items: flex-start;
+   }
+   .brand-area {
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+   }
+   ul {
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+   }
+   ul li a {
+      width: 100%;
+      display: block;
+      text-align: left;
+      padding: 10px 8px;
+      font-size: 1rem;
+   }
+   .speech-bubble {
+      left: 0;
+      top: 120%;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.6rem;
+   }
+}
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
