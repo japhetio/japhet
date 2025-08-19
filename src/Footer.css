@@ -1,0 +1,61 @@
+ .footer-root {
+  background: linear-gradient(90deg, #23272f 60%, #00bcd4 100%);
+  color: #fff;
+  padding: 2.5rem 1rem 1rem 1rem;
+  font-family: inherit;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-grid section {
+  min-width: 160px;
+}
+
+.footer-grid h5 {
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #ffc107;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-grid li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-grid a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-grid a:hover {
+  color: #ff4081;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.98rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+}
