@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Member Dashboard - Christ-Centered Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --main-color: #ffd700;
+    --dark-bg: #111;
+    --light-bg: #1c1c1c;
+    --text-color: #fff;
+    --accent: #ff5722;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: linear-gradient(135deg, #1c1c1c, #333);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    color: var(--main-color);
+  }
+  nav a {
+    color: var(--text-color);
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: var(--accent);
+  }
+  main {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+  .profile {
+    flex: 1;
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ffcc00aa;
+    min-width: 280px;
+  }
+  .profile h2 {
+    color: var(--main-color);
+    margin-bottom: 1rem;
+  }
+  .profile p {
+    line-height: 1.5;
+  }
+  .chat, .community {
+    flex: 2;
+    background: var(--light-bg);
+    border-radius: 12px;
+    box-shadow: 0 0 12px #ffcc0044;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 600px;
+  }
+  .chat h2, .community h2 {
+    color: var(--main-color);
+    margin-bottom: 1rem;
+  }
+  /* AI Chat styles */
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    background: #222;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .chat-message {
+    margin-bottom: 0.75rem;
+  }
+  .chat-message.user {
+    text-align: right;
+    color: #ffd;
+  }
+  .chat-message.bot {
+    text-align: left;
+    color: #ccc;
+  }
+  .chat-input {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .chat-input input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+  .chat-input button {
+    background: var(--accent);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s;
+  }
+  .chat-input button:hover {
+    background: #e64a19;
+  }
+  /* Community board */
+  .community-posts {
+    flex: 1;
+    overflow-y: auto;
+    background: #222;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .community-post {
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .community-post:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .community-input {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .community-input input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+  .community-input button {
+    background: var(--main-color);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    color: #111;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s;
+  }
+  .community-input button:hover {
+    background: #ccaa00;
+  }
+  .no{
+    font-size:2rem;
+    animatio:aka
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    background: #111;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome, Believer</h1>
+  <nav>
+   
+  </nav>
+</header>
+
+<main>
+  <section class="profile" aria-label="User Profile">
+    <h2>Your Profile</h2>
+    <p><strong>Name:</strong> John Doe</p>
+    <p><strong>Faith Journey:</strong> 5 years walking with Christ</p>
+    <p><strong>Role:</strong> Member</p>
+  </section>
+
+  <section class="chat" aria-label="AI Chat with Christian AI">
+    <h2>Talk with ChristBot <span class="no">🤖<span></h2>
+    <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Ask ChristBot something..." aria-label="Chat input" />
+      <button id="sendBtn">Send</button>
+    </div>
+  </section>
+
+  <section class="community" aria-label="Community Message Board">
+    <h2>Community Board</h2>
+    <div class="community-posts" id="communityPosts"></div>
+    <div class="community-input">
+      <input type="text" id="communityInput" placeholder="Write a message..." aria-label="Community message input" />
+      <button id="postBtn">Post</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Christ-Centered Community
+</footer>
+
+<script>
+  // Simple AI Chat simulation
+  const chatMessages = document.getElementById('chatMessages');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  function addMessage(content, sender) {
+    const msg = document.createElement('div');
+    msg.classList.add('chat-message', sender);
+    msg.textContent = content;
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function getAIResponse(message) {
+    // Simple canned responses, you can expand
+    const msg = message.toLowerCase();
+    if (msg.includes('hello') || msg.includes('hi')) {
+      return 'Hello! How can I help you grow in Christ today?';
+    }
+    if (msg.includes('bible')) {
+      return 'The Bible is God’s Word, a lamp to your feet and a light to your path.';
+    }
+    if (msg.includes('prayer')) {
+      return 'I am here to pray with you. What would you like prayer for?';
+    }
+    if (msg.includes('love')) {
+      return 'God’s love is unconditional and never-ending.';
+    }
+    
+    return 'Thank you for sharing. Keep seeking Christ!';
+  }
+
+  sendBtn.addEventListener('click', () => {
+    const userMsg = chatInput.value.trim();
+    if (!userMsg) return;
+    addMessage(userMsg, 'user');
+    chatInput.value = '';
+    setTimeout(() => {
+      const botResponse = getAIResponse(userMsg);
+      addMessage(botResponse, 'bot');
+    }, 600);
+  });
+
+  chatInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') sendBtn.click();
+  });
+
+  // Community Board
+  const communityPosts = document.getElementById('communityPosts');
+  const communityInput = document.getElementById('communityInput');
+  const postBtn = document.getElementById('postBtn');
+
+  postBtn.addEventListener('click', () => {
+    const msg = communityInput.value.trim();
+    if (!msg) return;
+    const post = document.createElement('div');
+    post.classList.add('community-post');
+    post.textContent = msg;
+    communityPosts.appendChild(post);
+    communityInput.value = '';
+    communityPosts.scrollTop = communityPosts.scrollHeight;
+  });
+
+  communityInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') postBtn.click();
+  });
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern E-commerce UI with Login Validation</title>
+  <style>
+    /* (keep all existing styles unchanged) */
+    /* ... existing CSS ... */
+    .cart-panel {
+      position: fixed;
+      right: 20px;
+      bottom: 80px;
+      background: white;
+      color: #333;
+      width: 300px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      display: none;
+      z-index: 150;
+    }
+    .cart-panel h4 { margin-bottom: 1rem; }
+    .cart-panel ul { list-style: none; padding: 0; }
+    .cart-panel li { border-bottom: 1px solid #eee; padding: 0.5rem 0; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ShopNow</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Contact</a>
+      <span id="user-greeting" class="user-greeting"></span>
+    </nav>
+  </header>
+
+  <div class="discount-banner">🔥 Summer Sale! Up to 50% OFF on selected items!</div>
+
+  <section class="hero">
+    <h2>Discover the Best Deals</h2>
+    <p>Top-quality products with unbeatable prices. Shop now and save big!</p>
+    <button>Shop Now</button>
+  </section>
+
+  <section class="products">
+    <!-- products unchanged -->
+    <div class="product">
+      <img src="https://source.unsplash.com/400x300/?shoe" alt="Product 1">
+      <div class="info">
+        <h3>Running Shoes</h3>
+        <p>$49.99</p>
+        <button onclick="attemptAddToCart('Running Shoes')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://source.unsplash.com/400x300/?bag" alt="Product 2">
+      <div class="info">
+        <h3>Stylish Backpack</h3>
+        <p>$59.99</p>
+        <button onclick="attemptAddToCart('Stylish Backpack')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://source.unsplash.com/400x300/?watch" alt="Product 3">
+      <div class="info">
+        <h3>Smart Watch</h3>
+        <p>$89.99</p>
+        <button onclick="attemptAddToCart('Smart Watch')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://source.unsplash.com/400x300/?headphones" alt="Product 4">
+      <div class="info">
+        <h3>Wireless Headphones</h3>
+        <p>$69.99</p>
+        <button onclick="attemptAddToCart('Wireless Headphones')">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="cart" onclick="toggleCartPanel()">
+    🛒
+    <div class="cart-count" id="cart-count">0</div>
+  </div>
+
+  <div class="cart-panel" id="cart-panel">
+    <h4>Your Cart</h4>
+    <ul id="cart-items">
+      <li>No items in cart.</li>
+    </ul>
+  </div>
+
+  <div id="login-modal">
+    <div class="modal-content">
+      <h3>Login Required</h3>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="loginUser()">Login</button>
+    </div>
+  </div>
+
+  <script>
+    let cartCount = 0;
+    let isLoggedIn = false;
+    let currentUser = '';
+    let cartItems = [];
+
+    function attemptAddToCart(productName) {
+      if (!isLoggedIn) {
+        document.getElementById('login-modal').style.display = 'flex';
+      } else {
+        addToCart(productName);
+      }
+    }
+
+    function addToCart(productName) {
+      cartCount++;
+      cartItems.push(productName);
+      document.getElementById('cart-count').innerText = cartCount;
+      updateCartPanel();
+      alert(`${productName} added to cart!`);
+    }
+
+    function updateCartPanel() {
+      const cartList = document.getElementById('cart-items');
+      cartList.innerHTML = '';
+      cartItems.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        cartList.appendChild(li);
+      });
+      if (cartItems.length === 0) {
+        cartList.innerHTML = '<li>No items in cart.</li>';
+      }
+    }
+
+    function toggleCartPanel() {
+      const panel = document.getElementById('cart-panel');
+      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function loginUser() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      if (username && password) {
+        isLoggedIn = true;
+        currentUser = username;
+        document.getElementById('login-modal').style.display = 'none';
+        document.getElementById('user-greeting').innerText = `Welcome, ${currentUser}`;
+        alert('Logged in successfully! You can now add items to cart.');
+      } else {
+        alert('Please enter username and password.');
+      }
+    }
+  </script>
+
+</body>
+</html>

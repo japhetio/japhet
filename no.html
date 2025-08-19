@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kids Section - Christ-Centered Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #fffbf0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      color: #f29e2e;
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+    main {
+      max-width: 960px;
+      width: 100%;
+    }
+    /* Story Cards Container */
+    .story-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    /* Card styles */
+    .card {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(242, 158, 46, 0.3);
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    .card-front {
+      background: #f29e2e;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .card-back {
+      background: #fff5db;
+      color: #d97504;
+      transform: rotateY(180deg);
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: inset 0 0 10px #f29e2eaa;
+    }
+
+    /* Quiz Section */
+    .quiz-section {
+      background: #fff5db;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(242, 158, 46, 0.3);
+      max-width: 500px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .quiz-section h2 {
+      color: #d97504;
+      margin-bottom: 1rem;
+    }
+    .quiz-question {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .quiz-options button {
+      background: #f29e2e;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .quiz-options button:hover {
+      background: #d97504;
+    }
+    .quiz-feedback {
+      margin-top: 1rem;
+      font-weight: 700;
+    }
+
+    /* Cute SVG */
+    .svg-container {
+      width: 150px;
+      margin: 0 auto 2rem;
+    }
+    svg {
+      width: 100%;
+      height: auto;
+      fill: #f29e2e;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Kids Section</h1>
+  <p>Fun Bible stories and activities to grow in Christ!</p>
+</header>
+
+<main>
+  <div class="svg-container" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 2C16 2 2 16 2 32s14 30 30 30 30-14 30-30S48 2 32 2zm0 56a26 26 0 110-52 26 26 0 010 52z"/><path d="M20 26h24v12H20z" fill="#fff5db"/></svg>
+  </div>
+
+  <section class="story-cards" aria-label="Bible Stories">
+    <article class="card" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front" aria-hidden="false">Noah's Ark</div>
+        <div class="card-back" aria-hidden="true">
+          "God saved Noah and the animals from the flood." - Genesis 6-9
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front" aria-hidden="false">David and Goliath</div>
+        <div class="card-back" aria-hidden="true">
+          "David trusted God and defeated the giant." - 1 Samuel 17
+        </div>
+      </div>
+    </article>
+    <article class="card" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front" aria-hidden="false">Jesus Loves Children</div>
+        <div class="card-back" aria-hidden="true">
+          "Jesus welcomed and blessed the little children." - Mark 10:13-16
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="quiz-section" aria-label="Bible Quiz for Kids">
+    <h2>Bible Quiz</h2>
+    <p class="quiz-question">Who built the ark to survive the great flood?</p>
+    <div class="quiz-options">
+      <button data-answer="wrong">Moses</button>
+      <button data-answer="correct">Noah</button>
+      <button data-answer="wrong">Abraham</button>
+    </div>
+    <p class="quiz-feedback" role="alert" aria-live="polite"></p>
+  </section>
+</main>
+
+<script>
+  const buttons = document.querySelectorAll('.quiz-options button');
+  const feedback = document.querySelector('.quiz-feedback');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.dataset.answer === 'correct') {
+        feedback.textContent = 'Correct! Noah built the ark.';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = 'Oops! Try again.';
+        feedback.style.color = 'red';
+      }
+    });
+  });
+</script>
+<section class="section" id="kids">
+  <h2>Kids Section</h2>
+  <p>Fun Bible stories, games, and activities for our little ones.</p>
+
+  <div id="quiz-container" style="max-width: 600px; margin: 2rem auto; background:#222; padding: 1.5rem; border-radius: 12px; box-shadow: 0 0 15px #ffd700aa;">
+    <h3 style="color: var(--main-color); text-align:center;">Bible Quiz for Kids!</h3>
+    <div id="question" style="font-size: 1.3rem; margin-bottom: 1rem; color:#fff;"></div>
+    <div id="options" style="display: flex; flex-direction: column; gap: 0.8rem;"></div>
+    <div id="feedback" style="margin-top: 1rem; font-weight: bold; min-height: 1.5rem;"></div>
+    <button id="nextBtn" style="display:none; margin-top: 1rem; background: var(--accent); color:#fff; padding: 0.5rem 1.2rem; border:none; border-radius: 8px; cursor: pointer;">Next</button>
+    <div id="score-container" style="display:none; margin-top:1rem; color: var(--main-color); font-weight: 700; font-size: 1.2rem; text-align:center;"></div>
+    <button id="restartBtn" style="display:none; margin-top:1rem; background:#ffd700; color:#111; padding: 0.5rem 1.2rem; border:none; border-radius: 8px; cursor:pointer;">Restart Quiz</button>
+  </div>
+</section>
+
+<script>
+  const quizData = [
+    {
+      question: "Who built the ark?",
+      options: ["Moses", "Noah", "Abraham", "David"],
+      answer: "Noah"
+    },
+    {
+      question: "What did Jesus turn water into?",
+      options: ["Milk", "Wine", "Oil", "Honey"],
+      answer: "Wine"
+    },
+    {
+      question: "Where was Jesus born?",
+      options: ["Nazareth", "Bethlehem", "Jerusalem", "Galilee"],
+      answer: "Bethlehem"
+    },
+    {
+      question: "Who was the strongest man in the Bible?",
+      options: ["Samson", "Paul", "Peter", "John"],
+      answer: "Samson"
+    },
+    {
+      question: "How many days did Jesus fast in the desert?",
+      options: ["10", "20", "30", "40"],
+      answer: "40"
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  const questionEl = document.getElementById('question');
+  const optionsEl = document.getElementById('options');
+  const feedbackEl = document.getElementById('feedback');
+  const nextBtn = document.getElementById('nextBtn');
+  const scoreContainer = document.getElementById('score-container');
+  const restartBtn = document.getElementById('restartBtn');
+
+  function loadQuestion() {
+    feedbackEl.textContent = '';
+    nextBtn.style.display = 'none';
+    scoreContainer.style.display = 'none';
+    restartBtn.style.display = 'none';
+
+    let q = quizData[currentQuestionIndex];
+    questionEl.textContent = q.question;
+    optionsEl.innerHTML = '';
+
+    q.options.forEach(option => {
+      const btn = document.createElement('button');
+      btn.textContent = option;
+      btn.style.padding = '0.5rem';
+      btn.style.borderRadius = '8px';
+      btn.style.border = 'none';
+      btn.style.cursor = 'pointer';
+      btn.style.backgroundColor = '#444';
+      btn.style.color = '#fff';
+      btn.style.fontSize = '1rem';
+      btn.addEventListener('mouseenter', () => btn.style.backgroundColor = '#666');
+      btn.addEventListener('mouseleave', () => btn.style.backgroundColor = '#444');
+      btn.addEventListener('click', () => checkAnswer(option, btn));
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(selected, btn) {
+    // disable all buttons
+    [...optionsEl.children].forEach(b => b.disabled = true);
+
+    if (selected === quizData[currentQuestionIndex].answer) {
+      btn.style.backgroundColor = 'green';
+      feedbackEl.textContent = "Correct! 🎉";
+      score++;
+    } else {
+      btn.style.backgroundColor = 'red';
+      feedbackEl.textContent = `Wrong! The correct answer is "${quizData[currentQuestionIndex].answer}".`;
+      // Highlight correct answer
+      [...optionsEl.children].forEach(b => {
+        if (b.textContent === quizData[currentQuestionIndex].answer) {
+          b.style.backgroundColor = 'green';
+        }
+      });
+    }
+    nextBtn.style.display = 'inline-block';
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex >= quizData.length) {
+      showScore();
+    } else {
+      loadQuestion();
+    }
+  });
+
+  restartBtn.addEventListener('click', () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    loadQuestion();
+  });
+
+  function showScore() {
+    questionEl.textContent = '';
+    optionsEl.innerHTML = '';
+    feedbackEl.textContent = '';
+    nextBtn.style.display = 'none';
+    scoreContainer.style.display = 'block';
+    restartBtn.style.display = 'inline-block';
+    scoreContainer.textContent = `Quiz complete! Your score: ${score} / ${quizData.length}`;
+  }
+
+  loadQuestion();
+</script>
+
+
+</body>
+</html>
+
+
+
+

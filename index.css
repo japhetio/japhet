@@ -1,0 +1,489 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+header{
+  
+}
+.link{
+    display: inline;
+   
+    background-size: cover;
+    position:absolute;
+    border: none;
+    height: 100%;
+    width: 100%;
+    top: 1px;
+    
+  border: none;
+  background: url(programmer-with-3d-computer-green-code_124008-62.avif);
+ background-size: cover;
+background-repeat: no-repeat;
+  
+
+background-position: center;
+margin: 0;
+ }
+ body,html{
+
+  border: none;
+  background: url(futuristic-ultraviolet-background_1302-11613.avif);
+ background-size: cover;
+background-repeat: no-repeat;
+  
+
+background-position: center;
+margin: 0;
+ }
+ .link{
+    padding: 12px;
+    
+ }
+ .be{
+  width: 100%;
+ }
+ nav{
+  position: relative;
+  background-size: cover;
+  height:100% ;
+
+
+ padding: auto;
+ top: 0%;
+ 
+       }
+
+ 
+ image{
+ position: absolute;
+ width: 2rem;
+ }
+.link a{
+   color: rgb(0, 0, 0);
+   font-weight: bolder;
+   padding: 10px;
+   
+   text-decoration: underline;
+   font-size:24px ;
+   margin: auto;
+}
+/* Fade In Animation: Smoothly transitions the element from invisible to visible. Customize as needed. */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.link a:hover {
+  animation: fadeIn 1s ease-in-out;
+
+}
+/* Blur Animation: Creates a smooth blur-to-clear effect, ideal for elements that need a transition from blurred to focused. */
+@keyframes blur {
+  from {
+    filter: blur(10px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
+a:hover {
+  animation: blur 0.7s ease-in-out;
+  text-decoration: underline;
+  
+  text-decoration-color: #fb923c;
+}
+/* Slide In from Right Animation: Slides the element in from the right side. Useful for side panels or alerts. */
+@keyframes slideInRight {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+.a {
+  animation: slideInRight 0.5s ease-out;
+  transition: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+/* Pop Animation: Use to create a popping effect on elements, ideal for buttons and icons. */
+/* Text Color Animation: Creates a gradient text color animation that smoothly transitions through different colors. Ideal for headings or any text you want to highlight with dynamic color changes. */
+a,.h1 {
+  display: inline;
+  text-align: right;
+  font-size: 30px;
+  color: #000;
+  background-image: linear-gradient(
+    to right,
+    #60a5fa,
+    #3cd8b1,
+    #25cc41,
+    #b44f4ff3
+    
+  );
+  position: sticky;
+ 
+  gap: 100px;
+ padding: 30px;
+  background-size: 200% auto;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: TextColor 5s linear infinite;
+}
+
+.a{
+ background: #546666;
+ top: -5;
+ 
+ 
+ 
+ 
+ } @keyframes TextColor {
+  to { background-position: -200% center; }
+}
+.h1{
+  text-shadow:4px 3px 6px #fb923c,3px 5px 6px purple; 
+}
+nav{
+  background-color: #60a5fa;
+  top: -100%;
+}
+/* Spin Animation: Rotates the element 360 degrees, great for loaders and spinning icons. */
+/* Bounce Animation: Bounces the element like a ball, ideal for animated loaders or playful effects. */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+main {
+  animation: bounce 2s infinite;
+}
+.falling-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  perspective: 1000px; /* 3D perspective */
+}
+
+.falling-object {
+  position: absolute;
+  top: -50px;
+  font-size: 50px;
+  opacity: 0;
+  animation: fall 6s linear infinite, rotate 6s linear infinite;
+  color:black;
+}
+
+.falling-object:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.falling-object:nth-child(2) {
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.falling-object:nth-child(3) {
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.falling-object:nth-child(4) {
+  left: 70%;
+  animation-delay: 3s;
+}
+
+.falling-object:nth-child(5) {
+  left: 90%;
+  animation-delay: 4s;
+}
+
+.falling-object:nth-child(6) {
+  left: 20%;
+  animation-delay: 5s;
+}
+
+@keyframes fall {
+  0% {
+    top: -50px;
+    opacity: 0;
+  }
+  50% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+ .main,.box{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  
+  background-size: 800% 800%;
+
+  background-image: dark black;
+  animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  color: rgb(105, 91, 91);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  justify-content: flex-end;
+}
+
+.van {
+  font-size: 4rem;
+  margin: 0;
+  animation: textEntrance 2s ease forwards;
+  opacity: 0;
+  transform: rotateX(90deg) translateZ(-200px);
+}
+
+p {
+  font-size: 1.5rem;
+  margin: 1rem 0 2rem;
+  animation: textEntrance 2.5s ease forwards;
+  opacity: 0;
+  transform: rotateX(90deg) translateZ(-200px);
+}
+
+@keyframes textEntrance {
+  to {
+    opacity: 1;
+    transform: rotateX(0deg) translateZ(0);
+  }
+}
+
+.btn {
+  position: relative;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background: url(web-development-coding-programming-site-application-laptop-programming-languages_272306-19.avif);
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.4s;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.75s ease;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 0;
+}
+
+.btn:hover::before {
+  width: 0;
+  height: 0;
+}
+
+.btn:hover {
+  color: #000;
+  background: #fff;
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.overlay h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.overlay button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #ff0080;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.overlay button:hover {
+  background: #ff4da6;
+}
+/* Slide In from Left Animation: Slides the element in from the left side. Adjust values as necessary. */
+@keyframes slideInLeft {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+.card {
+  animation: slideInLeft 0.5s ease-out;
+} 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  
+}
+
+.box {
+  background:url(web-development-coding-programming-site-application-laptop-programming-languages_272306-19.avif);
+  margin: 3rem 0;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translatex(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.box.visible {
+  opacity: 1;
+  transform: translatex(0);
+}
+.hero.visible {
+  opacity: 1;
+  transform: translatex(0);
+}
+.hero-text {
+  flex: 1 1 320px;
+  padding: 0.1rem;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 2.258rem;
+  margin-bottom: 2rem;
+  color: #e0e7ff;
+}
+footer
+.btn-primary,h2 {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2575fc;
+  background: #fff;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  flex: 1 1 320px;
+  min-height: 100px;
+  background: url('https://source.unsplash.com/800x600/?office,team') no-repeat center/cover;
+  background-size: 100px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+}
+.scene {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spinCube 10s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@keyframes spinCube {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+} 

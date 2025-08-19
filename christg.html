@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faith Fellowship Church ✝️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #f5f5f5; }
+    .header {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      z-index: 10;
+    }
+    .header h1 { font-family: 'Playfair Display', serif; font-size: 28px; }
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #ffd700; }
+    .hero {
+      height: 100vh;
+      background: url('https://source.unsplash.com/1600x900/?church,cross') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      color: #fff;
+      z-index: 2;
+    }
+    .hero-content h2 { font-size: 50px; margin-bottom: 20px; }
+    .hero-content p { font-size: 20px; margin-bottom: 30px; }
+    .hero-content button {
+      background: #ffd700;
+      color: #333;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero-content button:hover { background: #e6c200; }
+    section {
+      padding: 80px 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    section p { text-align: center; margin-bottom: 50px; color: #555; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+    }
+    form button {
+      background: #ffd700;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover { background: #e6c200; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Faith Fellowship</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#sermons">Sermons</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Welcome to Faith Fellowship</h2>
+    <p>Bringing people closer to Christ every day</p>
+    <button onclick="scrollToSection('about')">Join Us</button>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Our Church</h2>
+  <p>We are a community of believers committed to worship, outreach, and growing together in Christ's love.</p>
+</section>
+
+<section id="sermons">
+  <h2>Latest Sermons</h2>
+  <p>Listen to the most recent teachings and be inspired to walk in faith and love.</p>
+</section>
+
+<section id="events">
+  <h2>Upcoming Events</h2>
+  <p>Check out what's happening at Faith Fellowship this month and get involved!</p>
+</section>
+
+<section id="gallery">
+  <h2>Our Church Family</h2>
+  <div class="gallery">
+    <img src="https://source.unsplash.com/400x300/?church,worship" alt="Church 1">
+    <img src="https://source.unsplash.com/400x300/?bible,prayer" alt="Church 2">
+    <img src="https://source.unsplash.com/400x300/?choir,praise" alt="Church 3">
+    <img src="https://source.unsplash.com/400x300/?cross,sunset" alt="Church 4">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact & Prayer Requests</h2>
+  <form onsubmit="submitForm(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message or Prayer Request" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p id="form-message" style="text-align:center;color:green;"></p>
+</section>
+
+<footer>
+  &copy; 2025 Faith Fellowship Church | Designed with ❤️ for Christ
+</footer>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+  function submitForm(event) {
+    event.preventDefault();
+    document.getElementById('form-message').textContent = 'Thank you! We will pray for you.';
+    event.target.reset();
+  }
+</script>
+
+</body>
+</html>
+

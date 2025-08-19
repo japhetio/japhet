@@ -1,0 +1,153 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christ Chat AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #ffd700;
+    }
+    .chatbot-container {
+      background: #222;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .robot {
+      width: 60px;
+      height: 60px;
+      background: #ffd700;
+      border-radius: 50%;
+      margin: 0 auto;
+      animation: bounce 2s infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+    .messages {
+      height: 300px;
+      overflow-y: auto;
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .input-area {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .input-area button {
+      padding: 0.75rem 1.5rem;
+      background: #ffd700;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .message {
+      margin-bottom: 0.5rem;
+    }
+    .user {
+      color: #00e6e6;
+    }
+    .bot {
+      color: #ff9800;
+    }
+  </style>
+</head>
+<body>
+  <h1>Christ Chat AI</h1>
+  <div class="chatbot-container">
+    <div class="robot">🤖</div>
+    <div class="messages" id="messages"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Ask about Christ, prayer, or faith...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const messages = document.getElementById('messages');
+    const userInput = document.getElementById('userInput');
+
+    function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      addMessage('user', text);
+      userInput.value = '';
+
+      setTimeout(() => {
+        const response = getBotResponse(text);
+        addMessage('bot', response);
+        speak(response);
+      }, 800);
+    }
+
+    function addMessage(sender, text) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${sender}`;
+      msgDiv.textContent = `${sender === 'user' ? 'You' : 'ChristBot'}: ${text}`;
+      messages.appendChild(msgDiv);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function getBotResponse(input) {
+      input = input.toLowerCase();
+      if (input.includes('pray')) {
+        return "Remember, prayer is a powerful tool. Jesus listens to every word. our father, who art in heaven; holy is you name thy kindom come, as it in heven; give us our daily bread and deliver us from evil. amen!";
+      } else if (input.includes('bible')) {
+        return "The Bible says in John 14:6 - 'I am the way, the truth, and the life.'. and faith  comes from what you hear." ;
+      } else if (input.includes('jesus')) {
+        return "Jesus loves you deeply. His sacrifice was for you. and i tell you the truth, i am the light of the world, and so you are.you are justify only by your faith";
+      } else if (input.includes('love')) {
+        return "Love is the greatest commandment. Love God and love others.";
+      } else {
+        return "Keep seeking Christ! I'm here to support you spiritually.";
+      }
+    }
+
+    function speak(message) {
+      if ('speechSynthesis' in window) {
+        const utter = new SpeechSynthesisUtterance(message);
+        utter.lang = 'en-US';
+        window.speechSynthesis.speak(utter);
+      }
+    }
+  </script>
+</body>
+</html>

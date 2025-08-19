@@ -1,0 +1,122 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #ffffff;
+    }
+    header {
+      background: #1f1f1f;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+    .events-section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .event-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+    .event-title {
+      font-size: 1.5rem;
+      color: #00cec9;
+      margin-bottom: 0.5rem;
+    }
+    .event-date {
+      font-size: 0.9rem;
+      color: #b2bec3;
+      margin-bottom: 1rem;
+    }
+    .event-description {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1f1f1f;
+      color: #b2bec3;
+    }
+    .social-icons {
+      margin: 1rem 0;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: #ffffff;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #00cec9;
+    }
+    .man-svg {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .man-svg svg {
+      width: 100px;
+      height: 100px;
+      fill: #00cec9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Upcoming Church Events</h1>
+  </header>
+  <section class="events-section">
+    <div class="event-card">
+      <div class="event-title">Sunday Worship Service</div>
+      <div class="event-date">Every Sunday at 10:00 AM</div>
+      <div class="event-description">Join us for a powerful time of worship, prayer, and the Word of God. All are welcome!</div>
+    </div>
+    <div class="event-card">
+      <div class="event-title">Youth Night</div>
+      <div class="event-date">Friday, May 17th at 6:00 PM</div>
+      <div class="event-description">An exciting night for the youth with games, worship, and fellowship.</div>
+    </div>
+    <div class="event-card">
+      <div class="event-title">Community Outreach</div>
+      <div class="event-date">Saturday, May 25th at 9:00 AM</div>
+      <div class="event-description">Let's make a difference! Volunteer to help our community by serving food and providing support to those in need.</div>
+    </div>
+    <div class="man-svg">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <path d="M32 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm-4 16h8l6 12h-6v10h-8V34h-6l6-12z"/>
+      </svg>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    &copy; 2025 Faith Fellowship Church. All rights reserved.
+  </footer>
+</body>
+</html>
